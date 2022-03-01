@@ -3,7 +3,7 @@ from django.db import models
 class Product(models.Model):
     name                = models.CharField(max_length=30)
     country             = models.CharField(max_length=30)
-    price               = models.DecimalField(decimal_places=2)
+    price               = models.DecimalField(decimal_places=2, max_digits = 20)
     receiving_date      = models.DateTimeField(auto_now_add=True)
     description         = models.CharField(max_length=200)
     thumbnail_image_url = models.CharField(max_length=200)
