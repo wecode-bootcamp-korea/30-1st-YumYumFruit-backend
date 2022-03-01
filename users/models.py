@@ -8,8 +8,8 @@ class User(models.Model):
     password     = models.CharField(max_length=200)
     address      = models.CharField(max_length=200, blank=True)
     phone_number = models.CharField(max_length=50)
-    point        = models.IntegerField(blank = True, null = True) 
-    deposit      = models.IntegerField(blank = True, null = True)
+    point        = models.DecimalField(decimal_places=2, blank = True, null = True)
+    deposit      = models.DecimalField(decimal_places=2, blank = True, null = True)
     created_at   = models.DateTimeField(auto_now_add=True)
 
     class Meta:

@@ -5,10 +5,10 @@ from products.models import Product
 
 
 class Order(models.Model):
-    total_price  = models.IntegerField()
-    shipping_fee = models.IntegerField()
-    paid_point   = models.IntegerField()
-    paid_deposit = models.IntegerField()
+    total_price  = models.DecimalField(decimal_places=2)
+    shipping_fee = models.DecimalField(decimal_places=2)
+    paid_point   = models.DecimalField(decimal_places=2)
+    paid_deposit = models.DecimalField(decimal_places=2)
     user         = models.ForeignKey(User, on_delete=models.CASCADE)
 
     class Meta:
@@ -17,8 +17,8 @@ class Order(models.Model):
         
 class OrderDetail(models.Model):
     quantity      = models.IntegerField()
-    earned_point  = models.IntegerField()
-    product_price = models.IntegerField()
+    earned_point  = models.DecimalField(decimal_places=2)
+    product_price = models.DecimalField(decimal_places=2)
     order         = models.ForeignKey(Order, on_delete=models.CASCADE)
     product       = models.ForeignKey(Product, on_delete=models.CASCADE)
 
