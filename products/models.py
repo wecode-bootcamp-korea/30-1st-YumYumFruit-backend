@@ -21,7 +21,7 @@ class Category(models.Model):
         
 
 class ProductImage(models.Model):
-    iamge_url = models.CharField(max_length=200)
+    image_url = models.CharField(max_length=200)
     product   = models.ForeignKey("Product", on_delete=models.CASCADE)
     
     class Meta:
