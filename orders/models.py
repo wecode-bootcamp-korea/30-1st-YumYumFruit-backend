@@ -16,11 +16,12 @@ class Order(models.Model):
         
         
 class OrderDetail(models.Model):
-    quantity      = models.IntegerField()
-    earned_point  = models.DecimalField(decimal_places=2, max_digits = 20)
-    product_price = models.DecimalField(decimal_places=2, max_digits = 20)
-    order         = models.ForeignKey(Order, on_delete=models.CASCADE)
-    product       = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantity       = models.IntegerField()
+    earned_point   = models.DecimalField(decimal_places=2, max_digits = 20)
+    product_price  = models.DecimalField(decimal_places=2, max_digits = 20)
+    packing_option = models.BooleanField(default=False)
+    order          = models.ForeignKey(Order, on_delete=models.CASCADE)
+    product        = models.ForeignKey(Product, on_delete=models.CASCADE)
 
     class Meta:
         db_table = 'order_details'
