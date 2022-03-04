@@ -1,17 +1,19 @@
 import json
 import bcrypt
+import jwt
 
 from django.http  import JsonResponse
 from django.views import View
 
 from users.models    import User
 from users.validator import validate_email, validate_password
+from my_settings  import SECRET_KEY, AIGORHM
 
 class SignupView(View):
     def post(self, request):
         try:
             data           = json.loads(request.body)
-            name           = data['name']
+            username       = data['username']
             email          = data['email']
             password       = data['password']
             phone_number   = data['phone_number']   
@@ -31,7 +33,7 @@ class SignupView(View):
             decode_password = hashed_password.decode('utf-8')
              
             User.objects.create(
-                name         = name,
+                name         = username,
                 email        = email,
                 password     = decode_password,
                 phone_number = phone_number,
@@ -39,3 +41,24 @@ class SignupView(View):
             return JsonResponse({"message":"SUCCESS"},status=201)
         except KeyError:
             return JsonResponse({"message":"KEY_ERROR"},status=400)
+
+class SigninView(View):
+      def post(self, request):
+        try:
+            data     = json.loads(request.body)
+            email    = data["email"]
+            password = data["password"]
+                    
+            if not User.objects.filter(email = email).exists():
+                return JsonResponse({"message":"INVALID_USER"},status=401)
+            
+            user            = User.objects.get(email=email)
+            hashed_password = user.password.encode('utf-8') 
+          
+            if bcrypt.checkpw(password.encode('utf-8'),hashed_password):
+                token = jwt.encode({'id': user.id},SECRET_KEY,AIGORHM)
+                return JsonResponse({"token":token},status=200)
+            
+            return JsonResponse({"message": "INVAILD_USER"}, status=401)  
+        except KeyError:
+            return JsonResponse({"message": "KEY_ERROR"}, status=400) 
