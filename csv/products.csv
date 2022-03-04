@@ -1,0 +1,45 @@
+category,name,country,price,receiving_date,description,thumbnail_image_url,category_id
+국산과일,사과,국산,15000,2022-02-12,한 번 맛보면 꼭 다시 생각나는 달고 아삭한 사과! 냠냠프룻에서 만나보세요!,https://github.com/kkookkss/database/blob/main/kor/apple.webp?raw=true,1
+국산과일,배,국산,20000,2022-01-31,한국 배의 진수!! 인위적인 단맛이 아니라 과일 그 자체의 당도가 뛰어나 아주 시원합니다.,https://github.com/kkookkss/database/blob/main/kor/pear.webp?raw=true,1
+국산과일,딸기,국산,18000,2022-02-01,"이렇게 알이 큰 딸기 보신 적 있나요? 부드러운 식감, 화려한 풍미를 보장합니다. ",https://github.com/kkookkss/database/blob/main/kor/strawberries.webp?raw=true,1
+국산과일,귤,국산,19000,2022-02-02,앉은 자리에서 다 까 먹어도 모자른 맛! 한 박스 이상 구매를 추천합니다.,https://github.com/kkookkss/database/blob/main/kor/tangerine.webp?raw=true,1
+국산과일,한라봉,국산,27000,2022-02-03,제주도의 정수를 담은 달콤하고 상큼한 한라봉으로 즐거움을 누리세요!,https://github.com/kkookkss/database/blob/main/kor/dekopon.jpeg?raw=true,1
+국산과일,천혜향,국산,19000,2022-02-04,제주의 뜨거운 햇살이 천혜향을 더욱 아름답고 맛있게 만들었습니다. ,https://github.com/kkookkss/database/blob/main/kor/cheon.webp?raw=true,1
+국산과일,샤인머스켓,국산,20000,2022-02-05,솜사탕처럼 달콤한 샤인머스켓입니다. 맛보면 아십니다! 재구매율 2000%!!!,https://github.com/kkookkss/database/blob/main/kor/grapes.webp?raw=true,1
+국산과일,복숭아,국산,7500,2022-02-06,갓 따온 복숭아가 달콤 상큼하게 입 안에서 녹아버린답니다.,https://github.com/kkookkss/database/blob/main/kor/peach.webp?raw=true,1
+국산과일,매실,국산,5500,2022-02-07,난...니가 좋아. 너도... 내가 좋니? 상큼한 초록매실,https://github.com/kkookkss/database/blob/main/kor/plum.webp?raw=true,1
+국산과일,자두,국산,3500,2022-02-08,눈이 잔뜩 찌푸려질 만큼 새콤달콤하고 알 굵은 자두! 탱탱하게 익었어요.,https://github.com/kkookkss/database/blob/main/kor/jadu.webp?raw=true,1
+국산과일,대저토마토,국산,14000,2022-02-12,달콤! 상큼! 짭짤함! 맛의 신비로운 조화 짭짜리 대저 토마토!,https://github.com/kkookkss/database/blob/main/kor/bigtomato.webp?raw=true,1
+국산과일,대추방울토망고,국산,20000,2022-01-31,한 입의 상큼달달함. 대추방울토망고를 드셔보세요!,https://github.com/kkookkss/database/blob/main/kor/tomato.webp?raw=true,1
+국산과일,참외,국산,13000,2022-01-30,"16브릭스 이상의 고당도를 자랑하는 성주참외! 비타민 A,C,칼륨이 가득합니다.",https://github.com/kkookkss/database/blob/main/kor/melon.webp?raw=true,1
+수입과일,애플망고,페루,18000,2022-02-05,"세계 5대 광리 중 하나인 고당도 페루산 애플망고! 노화방지, 항암, 눈 건강, 피부미용에 탁월합니다",https://raw.githubusercontent.com/kkookkss/database/main/applemango.webp?raw=true,2
+수입과일,석류,미국,20000,2022-02-06,에스트로겐이 듬뿍! 미인을 위한 붉은 보석 석류,https://github.com/kkookkss/database/blob/main/pomegranate.webp?raw=true,2
+수입과일,자몽,파타고니아,16000,2022-02-07,진한 과즙과 탱글탱글한 루비빛 과육! 하루 1과만 드셔도 일일 비타민C 섭취량을 충족시킨답니다.,https://github.com/kkookkss/database/blob/main/grapefruit.webp?raw=true,2
+수입과일,아보카도,말레이시아,9500,2022-02-08,현지 농장에 방문해 꼼꼼히 품질을 체크한 후 직접 수입해 오는 천연버터 아보카도,https://github.com/kkookkss/database/blob/main/avocado.webp?raw=true,2
+수입과일,청포도,멕시코,11000,2022-02-09,껍질이 얇고 당도가 높으며 아삭아삭한 식감이 청량한 기분을 만끽하게 해줍니다!,https://github.com/kkookkss/database/blob/main/greengrape.webp?raw=true,2
+수입과일,용과,베트남,12000,2022-02-10,백용과보다 당도가 높고 맛있는 적용과! 선물용으로도 제격입니다.,https://github.com/kkookkss/database/blob/main/dragon.webp?raw=true,2
+수입과일,체리,칠레,9000,2022-02-11,과일의 다이아몬드라 불리는 체리! 이름과 모양까지도 예쁘죠!,https://github.com/kkookkss/database/blob/main/cherry.webp?raw=true,2
+수입과일,레몬,칠레,7500,2022-02-12,비타민의 대명사 레몬! 특유의 톡 쏘는 새콤함이 피로를 풀어주고 기분도 상쾌하게 만들어 줍니다.,https://github.com/kkookkss/database/blob/main/lemon.webp?raw=true,2
+수입과일,코코넛,베트남,8000,2022-02-13,외국에서는 임산부들이 특히 많이 먹는 코코넛! 즙과 속까지 전부 즐기세요!,https://github.com/kkookkss/database/blob/main/coconut.webp?raw=true,2
+수입과일,파인애플,필리핀,18000,2022-02-14,"황금빛 과육의 상큼한 산미와 풍부한 단맛이 조화로운, 남녀노소 누구나 좋아하는 열대과일",https://github.com/kkookkss/database/blob/main/pineapple.webp?raw=true,2
+수입과일,리치,중국,6000,2022-02-03,꽃향기가 나는 감미로운 과일! 지방을 분해하는 효소가 있답니다.,https://github.com/kkookkss/database/blob/main/lychee.webp?raw=true,2
+수입과일,라임,베트남,5500,2022-02-12,새콤상큼한 향기와 즙으로 더울 때 몸에 활력을 가득 채워줍니다.,https://github.com/kkookkss/database/blob/main/lime.webp?raw=true,2
+수입과일,두리안,태국,170000,2022-01-31,현지에서 완전숙성 후 배송되는 열대과일의 황제!! 고단백 식품으로 식이섬유가 풍부합니다.,https://github.com/kkookkss/database/blob/main/durian.webp?raw=true,2
+수입과일,블루베리,칠레,16000,2022-01-30,타임지가 선정한 10대 슈퍼푸드! 신이 내린 보랏빛 선물!,https://github.com/kkookkss/database/blob/main/blueberry.webp?raw=true,2
+수입과일,카라카라시 ,남아공,25000,2022-01-30,영양만점 상큼한 과즙 폭탄! 대과만 엄선해서 보내 드립니다.,https://github.com/kkookkss/database/blob/main/karak.webp?raw=true,2
+수입과일,블랙사파이어,미국,50000,2022-02-13,"가지처럼 길쭉한 포도로 당도가 18~22브릭스에 달하는, 껍질째 먹을 수 있는 최고의 포도입니다!",https://github.com/kkookkss/database/blob/main/blackSap.webp?raw=true,2
+냉동과일,냉동 체리,파타고니아,6500,2022-02-09,더위를 날리는 아이스 체리! 100% 원물 그대로 담은 체리를 1년내내 즐기세요.,https://github.com/kkookkss/database/blob/main/%EB%83%89%EB%8F%99/icecherry.webp?raw=true,3
+냉동과일,냉동 애플망고,호주,6000,2022-02-10,생망고보다 당도 높은 아이스 애플망고! 손질 없이 바로 드실 수 있어요,https://github.com/kkookkss/database/blob/main/%EB%83%89%EB%8F%99/iceapplemango.webp?raw=true,3
+냉동과일,냉동 블루베리,미국,18000,2022-02-11,하이부시 블루베리협회의 검증을 받은 A등급만 선별하여 사용합니다! ,https://github.com/kkookkss/database/blob/main/%EB%83%89%EB%8F%99/iceblueberry.webp?raw=true,3
+냉동과일,냉동 딸기,파타고니아,19000,2022-02-12,달콤한 향기와 맛을 가진 비타민 C가 풍부한 과일! 물러지기 쉬워 보관이 어려운 딸기를 냉동으로 만나보세요.,https://github.com/kkookkss/database/blob/main/%EB%83%89%EB%8F%99/icestrawberry.webp?raw=true,3
+냉동과일,냉동 망고,호주,11000,2022-02-13,생망고보다 당도 높은 냉동망고! 손질 없이 바로 드실 수 있어요,https://github.com/kkookkss/database/blob/main/%EB%83%89%EB%8F%99/icemango.webp?raw=true,3
+냉동과일,냉동 아보카도,칠레,7500,2022-02-14,세척 및 손질 후 급속냉동하였습니다. 해동하여 바로 드실 수 있습니다. 샐러드나 샌드위치로 제격!,https://raw.githubusercontent.com/kkookkss/database/main/%EB%83%89%EB%8F%99/iceavocado.webp,3
+냉동과일,냉동 키위,미국,8000,2022-02-15,"새콤달콤 과일의 여왕 비타민 C, E와 식이섬유가 풍부한 참다래",https://raw.githubusercontent.com/kkookkss/database/main/%EB%83%89%EB%8F%99/icekiwi.webp,3
+냉동과일,냉동 감귤,국산,7500,2022-02-16,물 한 방울 섞지 않고 원물 100% 제주 유기농 감귤 ,https://raw.githubusercontent.com/kkookkss/database/main/%EB%83%89%EB%8F%99/icegamgul.webp,3
+냉동과일,냉동 바나나,필리핀,7500,2022-02-03,"녹을수록 더 부드러운, 든든한 천연간식 고당도 슬라이스 바나나",https://github.com/kkookkss/database/blob/main/%EB%83%89%EB%8F%99/icebanana.webp?raw=true,3
+냉동과일,냉동 석류,호주,12500,2022-02-04,미인을 위한 빨간 복주머니! 붉은 보석 석류,https://raw.githubusercontent.com/kkookkss/database/main/%EB%83%89%EB%8F%99/icepomegranate.webp,3
+과일세트,에센셜 박스,국산,80000,2022-02-07,살면서 꼭 맛보면 좋을 과일들을 모은 실속있는 에센셜 박스! ,https://github.com/kkookkss/database/blob/main/set/set_essential.webp?raw=true,4
+과일세트,라라박스,국산,120000,2022-02-08,"신선하고 특이한 수입 과일들을 담았습니다. 친구들과, 가족들과, 선물용으로도 제격.",https://github.com/kkookkss/database/blob/main/set/set_lala.webp?raw=true,4
+과일세트,시그니쳐 과일바구니,국산,150000,2022-02-09,"냠냠프룻의 시그니쳐 과일바구니. 아름다운 패키지와 꼼꼼한 포장, 자체제작한 바구니의 품격있는 디자인.",https://github.com/kkookkss/database/blob/main/set/set_signature.webp?raw=true,4
+과일세트,럭셔리 과일바구니,국산,180000,2022-02-10,흔하지 않은 고급 과일들과 남겨주시는 메시지 카드를 동봉해 드립니다. 감사한 분들께 마음을 표현하세요.,https://github.com/kkookkss/database/blob/main/set/set_luxury.webp?raw=true,4
+과일세트,로얄박스,국산,200000,2022-02-11,귀하고 좋은 날 소중한 사람들을 위해 함께 즐길 수 있도록 풍부한 구성과 품격있는 퀄리티를 보장합니다.,https://github.com/kkookkss/database/blob/main/set/set_royal.webp?raw=true,4

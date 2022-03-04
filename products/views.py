@@ -44,8 +44,8 @@ class ProductListView(View):
                 product_offset = list(Product.objects.all().order_by(sort)[offset:limit].values())
                 total_items    = Product.objects.all().count()
 
-            page_count     = total_items / page_size
-            return JsonResponse({"message":"SUCCESS", "results":product_offset, "total_pages":math.ceil(page_count), "total_items":total_items}, status=200)
+            page_count     = math.ceil(total_items / page_size)
+            return JsonResponse({"message":"SUCCESS", "results":product_offset, "total_pages":page_count, "total_items":total_items}, status=200)
         except KeyError:
             return JsonResponse({"results":"KEY_ERROR"}, status=400)
         except json.JSONDecodeError:
