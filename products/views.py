@@ -27,8 +27,8 @@ class ProductListView(View):
             product_offset = list(product_list.order_by(sort)[offset:limit].values())
 
             return JsonResponse({
-                                    "message":"SUCCESS",
-                                    "results":product_offset,
+                                    "message"    :"SUCCESS",
+                                    "results"    :product_offset,
                                     "total_pages":page_count,
                                     "total_items":total_items
                                 }, status=200)
