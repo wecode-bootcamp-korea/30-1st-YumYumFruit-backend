@@ -8,7 +8,7 @@ from datetime     import datetime, timedelta
 
 from users.models    import User, ShoppingCart
 from users.validator import validate_email, validate_password
-from my_settings     import SECRET_KEY, AIGORITHM
+from my_settings     import SECRET_KEY, ALGORITHM
 
 class SignupView(View):
     def post(self, request):
@@ -59,7 +59,7 @@ class SigninView(View):
             if not bcrypt.checkpw(password.encode('utf-8'),hashed_password):
                 return JsonResponse({"message" : "INVAILD_USER"}, status=401) 
             
-            token = jwt.encode({'id': user.id, 'exp':datetime.utcnow() + timedelta(days=2)},SECRET_KEY,AIGORITHM)
+            token = jwt.encode({'id': user.id, 'exp':datetime.utcnow() + timedelta(days=2)},SECRET_KEY,ALGORITHM)
             
              
             return JsonResponse({"token" : token},status=200)
