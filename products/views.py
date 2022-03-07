@@ -8,7 +8,7 @@ from users.models       import User, ShoppingCart
 from orders.models      import OrderDetail
 
 class ProductListView(View):
-    def get(self, request):  
+    def get(self, request):
         try:
             sort      = request.GET.get("sort", "price")
             category  = request.GET.get("category", "all")
