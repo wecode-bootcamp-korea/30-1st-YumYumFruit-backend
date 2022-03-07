@@ -22,3 +22,7 @@ class ShoppingCart(models.Model):
     packing_option  = models.BooleanField(default=False)
     class Meta:
         db_table = 'shopping_carts'
+        
+class Wishlist(models.Model):
+    user    = models.ForeignKey("User", on_delete=models.CASCADE)
+    product = models.ForeignKey("Product",on_delete=models.CASCADE)
