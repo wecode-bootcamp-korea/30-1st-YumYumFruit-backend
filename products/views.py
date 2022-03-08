@@ -15,7 +15,7 @@ class ProductDetailView(View):
                     'product_id'          : product.id,
                     'name'                : product.name,
                     'country'             : product.country,
-                    'price'               : product.price,
+                    'price'               : int(product.price),
                     'thumbnail_image_url' : product.thumbnail_image_url,
                     'description'         : product.description,
                     'images'              : [
@@ -23,10 +23,11 @@ class ProductDetailView(View):
                      for image in images]
             }
 
-            return JsonResponse({'data':data}, status=201)
+            return JsonResponse({'data':data}, status=200)
 
         except Product.DoesNotExist:
-            return JsonResponse({'message':'NOT_FOUND'}, status=401) 
+            return JsonResponse({'message':'NOT_FOUND'}, status=404) 
+
 
 class ProductListView(View):
     def get(self, request):
