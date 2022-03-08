@@ -30,11 +30,12 @@ class ProductListView(View):
             product_list   = Product.objects.filter(q)
             total_count    = product_list.count()
             page_count     = math.ceil(total_count / page_size)
-            product_offset   = list(product_list.order_by(sort)[offset:limit].values())
-            data_list = []
+            product_offset = product_list.order_by(sort)[offset:limit]
+            data_list      = []
 
             for data in product_offset:
-                product_offset.append({
+                data_list.append({
+                    "id"                 :data.id,
                     "name"               :data.name,
                     "price"              :int(data.price),
                     "country"            :data.country,
