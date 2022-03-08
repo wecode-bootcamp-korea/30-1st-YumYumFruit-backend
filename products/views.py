@@ -18,7 +18,7 @@ class ProductListView(View):
             limit       = int(page_size * page)
             offset      = int(limit - page_size)
 
-            category_validator = [1,2,3,4,"all"]
+            category_validator = [1,2,3,4,"all","1","2","3","4"]
 
             if category_id not in category_validator:
                 return JsonResponse({"results":"INVALID_PARAMETER"}, status=400)
