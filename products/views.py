@@ -30,10 +30,19 @@ class ProductListView(View):
             product_list   = Product.objects.filter(q)
             total_count    = product_list.count()
             page_count     = math.ceil(total_count / page_size)
-            product_offset = list(product_list.order_by(sort)[offset:limit].values())
+            product_offset   = list(product_list.order_by(sort)[offset:limit].values())
+            data_list = []
+
+            for data in product_offset:
+                product_offset.append({
+                    "name"               :data.name,
+                    "price"              :int(data.price),
+                    "country"            :data.country,
+                    "thumbnail_image_url":data.thumbnail_image_url,
+                })
 
             return JsonResponse({
-                "product_offset"       :product_offset,
+                "product_offset"       :data_list,
                 "total_number_of_pages":page_count,
                 "total_count"          :total_count
                 }, status=200)
