@@ -1,12 +1,33 @@
-import json, math
+import math
 
 from django.http           import JsonResponse
 from django.views          import View
 from django.db.models      import Q
 
-from products.models    import Product, ProductImage, Category
-from users.models       import User, ShoppingCart
-from orders.models      import OrderDetail
+from products.models    import Product, ProductImage
+
+class ProductDetailView(View):
+    def get(self, request, product_id):
+        try:
+            product = Product.objects.get(id=product_id)
+            images  = ProductImage.objects.filter(product_id=product_id)
+            data = {
+                    'product_id'          : product.id,
+                    'name'                : product.name,
+                    'country'             : product.country,
+                    'price'               : int(product.price),
+                    'thumbnail_image_url' : product.thumbnail_image_url,
+                    'description'         : product.description,
+                    'images'              : [
+                        image.image_url
+                     for image in images]
+            }
+
+            return JsonResponse({'data':data}, status=200)
+
+        except Product.DoesNotExist:
+            return JsonResponse({'message':'NOT_FOUND'}, status=404) 
+
 
 class ProductListView(View):
     def get(self, request):
@@ -39,3 +60,4 @@ class ProductListView(View):
                 }, status=200)
         except KeyError:
             return JsonResponse({"results":"KEY_ERROR"}, status=400)
+
