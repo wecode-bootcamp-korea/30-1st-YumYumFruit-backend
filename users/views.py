@@ -72,54 +72,36 @@ class ShoppingCartView(View):
     @login_decorator
     def post(self, request):
         try:
-            data = json.loads(request.body)
-            packing_list = []
-
-            for cart_recode in data:
-                packing_list.append(cart_recode)
-                user           = request.user
-                product_id     = cart_recode['product_id']
-                quantity       = cart_recode['quantity']
-                packing_option = cart_recode['packing_option']
-
-                if not Product.objects.filter(id=product_id).exists():
-                    return JsonResponse({"message" : "PRODUCT_NOT_EXIST"}, status=400)
-                
-                if packing_option == "packaging":
-                    packing_option = True
-                else:
-                    packing_option = False
-                
-                if quantity != 0:
-                    ShoppingCart.objects.create(
-                    user           = user,
-                    product_id     = product_id,
-                    quantity       = quantity,
-                    packing_option = packing_option
-                    )
+            data            = json.loads(request.body)
+            user            = request.user
+            product_id      = data['product_id']
+            packing_options = data['packing_options']
             
+            for packing_option in packing_options[::]:
+                if packing_option['quantity'] == 0:
+                    packing_options.remove(packing_option)
+                    
+            if len(packing_options) == 0:
+                return JsonResponse({"message" : "INVAILD_ITEM"}, status=400)
+            
+            cart_instance = [ShoppingCart(
+                user           = user,
+                product_id     = product_id,
+                quantity       = cart_item["quantity"],
+                packing_option = cart_item["packing_option"]
+            ) for cart_item in packing_options if cart_item["quantity"] != 0]
+            
+            ShoppingCart.objects.bulk_create(cart_instance)
+               
             return JsonResponse({"message" : "SUCCESS"}, status=201)
-
-        except ShoppingCart.DoesNotExist:
-            return JsonResponse({"message" : "INVALID_CART"}, status=400)
-        
         except KeyError:
             return JsonResponse({"message" : "KEY_ERROR"}, status=400)
-        
          
     @login_decorator     
     def get(self, request):
 
-        user  = request.user
-        carts = ShoppingCart.objects.select_related('product').filter(user_id=user) 
-        
-        if not ShoppingCart.objects.filter(user=user).exists():
-            user_result = {
-            'user_name' : user.name,
-            'user_point': int(user.point)
-        }
-            return JsonResponse({"user_info" : user_result}, status=200)
-        
+        user        = request.user
+        carts       = ShoppingCart.objects.filter(user_id=user.id) 
         user_result = {
             'user_name'  : user.name,
             'user_points': int(user.point)
@@ -165,19 +147,22 @@ class ShoppingCartView(View):
     
     @login_decorator
     def delete(self, request):
-
-        user  = request.user
-        carts = request.GET.get('cart_id').split(',')
-
-        for cart in carts:
-            if cart == "0":
-                ShoppingCart.objects.filter(user_id=user).delete()
+        try:
+            user  = request.user
+            cart_delete =  request.GET.get('cart_id')
+            
+            if cart_delete == "all":
+                ShoppingCart.objects.filter(user_id=user.id).delete()
                 
                 return JsonResponse({"message" : "ALL_DELETE_SUCCESS"}, status=204)
             
-            if not ShoppingCart.objects.filter(id = cart, user = user).exists():
-                return JsonResponse({"message" : "NOT_EXIST"}, status=400)
+            carts = request.GET.get('cart_id').split(',')
+
+            if ShoppingCart.objects.filter(id__in=carts, user_id=user.id):
+                ShoppingCart.objects.filter(id__in=carts, user_id=user.id).delete()
+                return JsonResponse({"message" : "DELETE_SUCCESS"}, status=204)
+            else:
+                return JsonResponse({"message" : "INVAILD_CART"}, status=400)
             
-            ShoppingCart.objects.get(id = cart, user = user).delete()
-            
-        return JsonResponse({"message" : "DELETE_SUCCESS"}, status=204)
+        except KeyError:
+            return JsonResponse({"message" : "KEY_ERROR"}, status=400)
