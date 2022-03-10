@@ -77,13 +77,13 @@ class WishlistView(View):
             wish_product = data["product_id"]
         
             if Wishlist.objects.filter(user_id=user.id,product_id=wish_product).exists():
-              return JsonResponse({"message" : "DUPLICATE_PRODUCT"})
-            else:
-                Wishlist.objects.create(user_id=user.id,product_id=wish_product)
-                return JsonResponse({"message" : "WISHLIST_CREATED"},status=201)
-        
+                return JsonResponse({"message" : "DUPLICATE_PRODUCT"},status=400)
+            
+            Wishlist.objects.create(user_id=user.id,product_id=wish_product)
+            
+            return JsonResponse({"message" : "WISHLIST_CREATED"},status=201)
         except Wishlist.DoesNotExist:
-            return JsonResponse({"message" : "INVALID_CART"}, status=400)
+            return JsonResponse({'message' : 'DOES_NOT_EXIST_WISHLIST'}, status = 400)
         except KeyError:
             return JsonResponse({'message' : 'KEY_ERROR'}, status = 400)
    
@@ -95,46 +95,36 @@ class WishlistView(View):
               
             result = [
                 {
-                    'user_id'                 : user.id,
-                    'product_id'              : wishlist.product.id,
-                    'name'                    : wishlist.product.name,
-                    'price'                   : int(wishlist.product.price),
-                    'thumbnail_image_url'     : wishlist.product.thumbnail_image_url,
+                    'user_id'             : user.id,
+                    'product_id'          : wishlist.product.id,
+                    'name'                : wishlist.product.name,
+                    'price'               : int(wishlist.product.price),
+                    'thumbnail_image_url' : wishlist.product.thumbnail_image_url,
                 } for wishlist in wishlists
             ]
-            return JsonResponse({"result":result},status=200)
-            
-        except Wishlist.DoesNotExist:
-            return JsonResponse({'message':'DOES_NOT_EXITST_WISHLIST'}, status = 400)
+            return JsonResponse({"result" : result},status=200)
         except KeyError:
-            return JsonResponse({"message" : "KEY_ERROR"}, status=400)
-    
-    # @login_decorator
-    # def delete(self,request,product_id):
-    #     try:
-    #         user = request.user  
-    #         Wishlist.objects.filter(user_id=user.id,product_id=product_id).delete()
-            
-    #         return JsonResponse({'result':'DELETE_SELECT PRODUCT'}, status = 200)
-        
-    #     except KeyError:
-    #          return JsonResponse({"message" : "KEY_ERROR"}, status=400)
-    
+            return JsonResponse({"message" : "KEY_ERROR"}, status=400)    
+   
     @login_decorator
     def delete(self,request):
         try:
-            user     = request.user 
+            user      = request.user 
             wishlists = request.GET.get("wishlist_id").split(",")
+            wishlist_all  = request.GET.get("wishlist_id")
             
-            for wishlist in wishlists:
-                
-                if wishlist == "0":
-                    Wishlist.objects.filter(user_id=user.id).all().delete()
-                   
-                
-                Wishlist.objects.filter(user_id=user.id,id=wishlist).delete()
-            
-            return JsonResponse({"message":"DELETE_SUCCESS"},status=204)
+            if wishlist_all == "all":
+                Wishlist.objects.filter(user_id=user.id).delete()
+                return JsonResponse({"message": "ALL_DELETE_SUCCESS"},status=204)
+           
+            if Wishlist.objects.filter(user_id=user.id,id__in=wishlists).exists():
+                Wishlist.objects.filter(user_id=user.id,id__in=wishlists).delete()
+                return JsonResponse({"message": "DELETE_SUCCESS"},status=204)
+            else:
+                 return JsonResponse({'message' : 'DOES_NOT_REQUEST_PRODUCT'}, status = 400)    
+             
         except KeyError:
             return JsonResponse({"message" : "KEY_ERROR"}, status=400)
-    
+        
+        
+       
