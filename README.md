@@ -1,4 +1,4 @@
-# 냠냠프룻 Proejct
+# 원티드 Proejct
 
 <img src="" width="100" height="100">  
 
